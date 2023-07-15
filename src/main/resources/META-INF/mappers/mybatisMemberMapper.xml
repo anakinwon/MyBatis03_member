@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.mybatis02.model.MybatisMemberMapper">
+
+	<select id="getAllMembers" resultType="com.spring.mybatis02.model.MybatisMember">
+		SELECT * 
+		  FROM mybatis_member
+		 ORDER BY join_date desc
+	</select>
+	
+	<select id="getMember" resultType="com.spring.mybatis02.model.MybatisMember"
+		parameterType="String">
+		SELECT * 
+		  FROM mybatis_member 
+		 WHERE id = #{id}
+	</select>
+	
+	<insert id="insertMember" parameterType="com.spring.mybatis02.model.MybatisMember">
+		INSERT INTO MYBATIS_MEMBER 
+		    ( id
+		    , pwd
+		    , name
+		    , tel
+		    , email
+		    , join_date
+		    ) 
+		VALUES
+		    ( #{id}
+		    , #{pwd}
+		    , #{name}
+		    , #{tel}
+		    , #{email}
+		    , TO_CHAR(SYSDATE, 'yyyyMMddHH24miss')
+		    ) 
+	</insert>
+	
+	<update id="updateMember" parameterType="com.spring.mybatis02.model.MybatisMember">
+		UPDATE MYBATIS_MEMBER 
+		   SET PWD   = #{pwd}
+		     , NAME  = #{name}
+		     , TEL   = #{tel}
+		     , EMAIL = #{email}
+		 WHERE ID    = #{id}
+	</update>	
+	
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM MYBATIS_MEMBER 
+		 WHERE ID = #{id}
+	</delete>
+</mapper>

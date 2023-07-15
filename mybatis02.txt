@@ -1,0 +1,15 @@
+
+[ORACLE + MyBaits Generator 사용하기]
+
+ - 설치
+   . 이클립스  Help > Install New Software
+   
+   update url : http://mybatis.googlecode.com/svn/sub-projects/generator/trunk/eclipse/UpdateSite/
+ 
+ - generator config 파일 생성
+   . file > new > other
+     myBatis generator configuration file을 선택한다.
+     
+     ex> location : 
+         file name : generatorConfig.xml   
+ 
